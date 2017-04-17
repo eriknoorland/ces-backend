@@ -1,0 +1,24 @@
+{
+  "name": "ces-backend",
+  "version": "1.0.0",
+  "description": "The backend of a car entertainment system built with Node and Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eriknoorland/ces-backend.git"
+  },
+  "author": "Erik Noorland",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eriknoorland/ces-backend/issues"
+  },
+  "homepage": "https://github.com/eriknoorland/ces-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
