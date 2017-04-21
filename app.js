@@ -1,18 +1,12 @@
-var http = require('http');
-var express = require('express');
-var app = express();
-var server = http.createServer(app);
+const http = require('http');
+const express = require('express');
+const app = express();
+const server = http.createServer(app);
+const config = require('./local.config');
 
-// serve static files on index for the connected client
-app.use('/', express.static(__dirname + '/static'));
-
-app.use('/playlists', require('./routes/playlists'));
-app.use('/songs', require('./routes/songs'));
+app
+  .use('/', express.static(config.staticDir))
+  .use('/playlists', require('./routes/playlists'))
+  .use('/songs', require('./routes/songs'));
 
 module.exports = app;
-
-// https://www.terlici.com/2014/08/25/best-practices-express-structure.html
-// https://expressjs.com/en/api.html
-// get playlists
-// get playlist
-// get song
