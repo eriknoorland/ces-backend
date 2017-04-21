@@ -8,9 +8,9 @@ router.get('/', function(request, response) {
 
   if(fs.existsSync(config.playlistsDir)) {
     fs.readdirSync(config.playlistsDir).forEach(function(file) {
-      const baseUrl = `/${request.baseUrl}/`;
-      const filename = file.slice(0, -4)
-      const fileUrl = baseUrl + file;
+      const baseUrl = `${request.baseUrl}/`;
+      const filename = file.slice(0, -5)
+      const fileUrl = baseUrl + filename;
 
       playlists.push({
         src: fileUrl,
