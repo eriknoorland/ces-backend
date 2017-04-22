@@ -1,4 +1,5 @@
 module.exports =  {
   staticDir: '',
-  playlistsDir: ''
+  playlistsDir: '',
+  musicDir: ''
 }

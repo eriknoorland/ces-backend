@@ -4,4 +4,5 @@ npm-debug.log*
 *.sublime-*
 static/
 playlists/
+music/
 local.config.js
