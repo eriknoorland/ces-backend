@@ -2,4 +2,6 @@
 node_modules/
 npm-debug.log*
 *.sublime-*
+static/
+playlists/
 local.config.js

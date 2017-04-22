@@ -4,17 +4,18 @@ const fs = require('fs');
 const config = require('./../local.config');
 
 router.get('/', function(request, response) {
-  let playlists = [];
-
   if(fs.existsSync(config.playlistsDir)) {
-    fs.readdirSync(config.playlistsDir).forEach(function(file) {
+    let files = fs.readdirSync(config.playlistsDir);
+    let playlists = [];
+
+    files.forEach(function(file) {
       const baseUrl = `${request.baseUrl}/`;
-      const filename = file.slice(0, -5)
-      const fileUrl = baseUrl + filename;
+      const fileName = file.slice(0, -5)
+      const fileUrl = baseUrl + fileName;
 
       playlists.push({
         src: fileUrl,
-        name: filename
+        name: fileName
       });
     });
 
@@ -27,8 +28,10 @@ router.get('/', function(request, response) {
 
 router.get('/:name', function(request, response) {
   try {
-    const playlistName = `${request.params.name}.json`;
-    const playlist = require(`${config.playlistsDir}${playlistName}`);
+    const fileName = `${request.params.name}.json`;
+    const filePath = `${config.playlistsDir}${fileName}`;
+    const file = fs.readFileSync(filePath);
+    const playlist = JSON.parse(file);
 
     response.json(playlist);
   }
